@@ -1,31 +1,39 @@
 console.log('hit');
-let url = 'http://localhost:3000/people';
+let url = 'http://localhost:3000/movies';
 let container = document.querySelector('.container');
 let create = document.querySelector('.create');
-let firstNameCreate = document.querySelector('.firstNameCreate');
-let lastNameCreate = document.querySelector('.lastNameCreate');
+let titleCreate = document.querySelector('.titleCreate');
+let leadactorCreate = document.querySelector('.leadactorCreate');
+let posterCreate = document.querySelector('.poster')
+let directorCreate = document.querySelector('.director')
+let writerCreate = document.querySelector('.writer')
+let yearCreate = document.querySelector('.year')
 let idUpdate = document.querySelector('.idUpdate')
-let firstNameUpdate = document.querySelector('.firstNameUpdate');
-let lastNameUpdate = document.querySelector('.lastNameUpdate');
+let titleUpdate = document.querySelector('.titleUpdate');
+let leadactorUpdate = document.querySelector('.leadactorUpdate');
 let update = document.querySelector('.update')
 let del = document.querySelector('.delete')
 let deleteId = document.querySelector('.deleteId')
 
-create.addEventListener('click', addPerson);
-update.addEventListener('click', updatePerson);
+create.addEventListener('click', addMovies);
+update.addEventListener('click', updateMovies);
 del.addEventListener('click', removeLast)
 
 
-function addPerson(){
+function addMovies(){
     
-    let name = {
-        first: firstNameCreate.value,
-        last: lastNameCreate.value,
+    let movie = {
+        tilte: titleCreate.value,
+        leadactor: leadactorCreate.value,
+        poster: poster.Create.value,
+        director: director.Create.value,
+        writer: writer.Create.value,
+        year: year.Create.value
     }
     fetch(`${url}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(name)
+      body: JSON.stringify(movie)
 
     })
     .then(res => console.log(res))
@@ -36,18 +44,22 @@ function addPerson(){
 
 }   
 
-function updatePerson(){
+function updateMovies(){
     //event.preventDefault()
-    let name = {
-        first: firstNameUpdate.value,
-        last: lastNameUpdate.value
+    let movie = {
+        tilte: titleCreate.value,
+        leadactor: leadactorCreate.value,
+        poster: poster.Create.value,
+        director: director.Create.value,
+        writer: writer.Create.value,
+        year: year.Create.value
     }
     fetch(`${url}/${idUpdate.value}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(name)
+        body: JSON.stringify(movie)
     })
     .catch(e => console.log(e))
     //console.log(name, idUpdate.value)
@@ -77,13 +89,18 @@ function updatePage(){
         for(let i = 0; i < res.length; i++) {
             
             const element = res[i];
-            //allIds.push(element.id)
+            
             console.log(element);
+            const body = document.querySelector('body')
+            let movieImg = document.createElement('img')
+            movieImg.setAttribute('src', element.poster )
+            body.appendChild(movieImg);
 
-            let person = document.createElement('h1');
+            let movie = document.createElement('h1');
 
-            person.innerHTML = `${element.first} ${element.last}`
-            container.prepend(person);
+            movie.innerHTML = `${element.title} ${element.leadactor} ${element.director} ${element.writer} ${element.year}`
+            container.prepend(movie);
+            movie.appendChild(movieImg)
         }
     })
 
