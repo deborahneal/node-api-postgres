@@ -16,16 +16,16 @@ Install the following dependencies:
  * [✔] Run <code>npm init -y</code>
  * [✔ ] Run <code>npm i express pg</code>
  * [ ✔] Run <code>npm i --save cors</code>
-* [ ] Access DB 
- * [ ] Change existing queries to match new DB structure 
- * [ ] View json in console 
-* [ ] Manipulate information to have a good looking app
-* [ ] Create README.md V1
-* [ ] Push to github
- * [ ] Create repo
- * [ ] Initialize git repository 
- * [ ] Add files to be committed
- * [ ] Create first commit
+* [ ✔] Access DB 
+ * [✔ ] Change existing queries to match new DB structure 
+ * [ ✔] View json in console 
+* [ ✔] Manipulate information to have a good looking app
+* [ ✔] Create README.md V1
+* [ ✔] Push to github
+ * [✔ ] Create repo
+ * [ ✔] Initialize git repository 
+ * [ ✔] Add files to be committed
+ * [ ✔] Create first commit
  * [ ] add origin
  * [ ] Push to origin master branch 
 
