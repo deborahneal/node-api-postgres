@@ -3,9 +3,9 @@ const Pool = require('pg').Pool;
 const pool = new Pool({
     
     user: 'postgres',
-    host: 'localhost',
+    host: 'database-1.cvdpzgaajl66.us-west-2.rds.amazonaws.com',
     database: 'movies',
-    password: '   ',
+    password: 'password',
     port: 5432,
 })
 const getMovies = (request, response) => {
